@@ -1,4 +1,5 @@
 require "has_ip_address/migration.rb"
+require "has_ip_address/request.rb"
 
 module HasIPAddress
   extend ActiveSupport::Concern
