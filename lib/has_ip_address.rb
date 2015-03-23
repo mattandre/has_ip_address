@@ -68,6 +68,28 @@ module HasIPAddress
         @ip_addresses_cache[name]
       end
 
+      define_singleton_method "by_#{name}_prefix" do |prefix|
+        where(ip_address_prefix: prefix)
+      end
+
+      define_singleton_method "by_#{name}_version" do |version|
+        where(ip_address_version: version)
+      end
+
+      define_singleton_method "by_#{name}" do |ip_address|
+        unless ip_address.is_a?(Networking::IPAddress) || ip_address.nil?
+          ip_address = Networking::IPAddress.parse(ip_address)
+        end
+
+        if ip_address.present?
+          data = ip_address.data
+          prefix = ip_address.prefix.to_i
+          version = ip_address.version
+        end
+
+        where(ip_address_data: data).send("by_#{name}_prefix", prefix).send("by_#{name}_version", version)
+      end
+
     end
   end
 end
