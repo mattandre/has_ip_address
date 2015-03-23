@@ -2,12 +2,6 @@
 
 one:
   description: MyString
-  ip_address: 1
-  ip_prefix: 1
-  ip_version: 1
 
 two:
   description: MyString
-  ip_address: 1
-  ip_prefix: 1
-  ip_version: 1
