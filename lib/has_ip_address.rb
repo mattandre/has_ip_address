@@ -1,3 +1,5 @@
+require "has_ip_address/migration.rb"
+
 module HasIPAddress
   extend ActiveSupport::Concern
 
@@ -70,3 +72,4 @@ module HasIPAddress
 end
 
 ActiveRecord::Base.send :include, HasIPAddress
+ActiveRecord::ConnectionAdapters::TableDefinition.send :include, HasIPAddress::Migration
