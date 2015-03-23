@@ -10,3 +10,4 @@ module HasIPAddress
 
   end
 end
+ActiveRecord::ConnectionAdapters::TableDefinition.send :include, HasIPAddress::Migration

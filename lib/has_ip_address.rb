@@ -59,7 +59,7 @@ module HasIPAddress
           prefix = self[prefix_column]
           version = self[version_column]
 
-          if data.present? && prefix.present? && version.present?
+          unless data.nil? || version.nil?
             @ip_addresses_cache[name] = Networking::IPAddress.parse_data(data, prefix, version)
           end
         end
@@ -72,4 +72,3 @@ module HasIPAddress
 end
 
 ActiveRecord::Base.send :include, HasIPAddress
-ActiveRecord::ConnectionAdapters::TableDefinition.send :include, HasIPAddress::Migration

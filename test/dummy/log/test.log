@@ -448,3 +448,594 @@ HasIPAddressTest: test_event_model
 HasIPAddressTest: test_truth
 ----------------------------
   [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36m (2.1ms)[0m  [1mDROP DATABASE IF EXISTS `has_ip_address_test`[0m
+  [1m[35m (0.2ms)[0m  CREATE DATABASE `has_ip_address_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (2.1ms)[0m  [1mCREATE TABLE `events` (`id` int(11) auto_increment PRIMARY KEY, `description` varchar(255), `ip_address_data` varbinary(16), `ip_address_prefix` smallint, `ip_address_version` tinyint, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36m (6.6ms)[0m  [1mCREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) [0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150323150133')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+---------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_object
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'912d2d36', 24, 4, '2015-03-23 18:54:08', '2015-03-23 18:54:08')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_components
+-------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 18:54:08', '2015-03-23 18:54:08')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-------------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_components
+-------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'ac100a01', 24, 4, '2015-03-23 18:54:08', '2015-03-23 18:54:08')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+---------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_object
+---------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80800200c0000000000000000', 64, 6, '2015-03-23 18:54:08', '2015-03-23 18:54:08')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-----------------------------
+HasIPAddressTest: test_module
+-----------------------------
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-------------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_components
+-------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 18:55:53', '2015-03-23 18:55:53')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-----------------------------
+HasIPAddressTest: test_module
+-----------------------------
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_object
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'912d2d36', 24, 4, '2015-03-23 18:55:53', '2015-03-23 18:55:53')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_object
+---------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80800200c0000000000000000', 64, 6, '2015-03-23 18:55:53', '2015-03-23 18:55:53')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-------------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_components
+-------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'ac100a01', 24, 4, '2015-03-23 18:55:53', '2015-03-23 18:55:53')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_components_without_prefix
+----------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_object
+---------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_components
+-------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_components_without_prefix
+----------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_object
+---------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_components
+-------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------
+HasIPAddressTest: test_module
+-----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_components_without_prefix
+----------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:01:03', '2015-03-23 19:01:03')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 6, '2015-03-23 19:01:03', '2015-03-23 19:01:03')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_components
+-------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:01:03', '2015-03-23 19:01:03')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 19:01:03', '2015-03-23 19:01:03')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------
+HasIPAddressTest: test_module
+-----------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:01:03', '2015-03-23 19:01:03')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_object
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:01:03', '2015-03-23 19:01:03')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'912d2d36', 24, 4, '2015-03-23 19:01:03', '2015-03-23 19:01:03')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_object
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:01:03', '2015-03-23 19:01:03')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80800200c0000000000000000', 64, 6, '2015-03-23 19:01:03', '2015-03-23 19:01:03')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-------------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_components
+-------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:01:03', '2015-03-23 19:01:03')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'ac100a01', 24, 4, '2015-03-23 19:01:03', '2015-03-23 19:01:03')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+----------------------------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_components_without_prefix
+----------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:01:03', '2015-03-23 19:01:03')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'ac100a01', 4, '2015-03-23 19:01:03', '2015-03-23 19:01:03')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+---------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_object
+---------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:01:40', '2015-03-23 19:01:40')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80800200c0000000000000000', 64, 6, '2015-03-23 19:01:40', '2015-03-23 19:01:40')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_components
+-------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:01:40', '2015-03-23 19:01:40')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'ac100a01', 24, 4, '2015-03-23 19:01:40', '2015-03-23 19:01:40')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+-----------------------------
+HasIPAddressTest: test_module
+-----------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:01:40', '2015-03-23 19:01:40')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+----------------------------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_components_without_prefix
+----------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:01:40', '2015-03-23 19:01:40')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'ac100a01', 4, '2015-03-23 19:01:40', '2015-03-23 19:01:40')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+-------------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_components
+-------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:01:40', '2015-03-23 19:01:40')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 19:01:40', '2015-03-23 19:01:40')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_object
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:01:40', '2015-03-23 19:01:40')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'912d2d36', 24, 4, '2015-03-23 19:01:40', '2015-03-23 19:01:40')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_components_without_prefix
+----------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:01:40', '2015-03-23 19:01:40')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 6, '2015-03-23 19:01:40', '2015-03-23 19:01:40')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_components_without_prefix
+----------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:03:55', '2015-03-23 19:03:55')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'ac100a01', 4, '2015-03-23 19:03:55', '2015-03-23 19:03:55')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_string
+---------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:03:55', '2015-03-23 19:03:55')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'912d2d36', 24, 4, '2015-03-23 19:03:55', '2015-03-23 19:03:55')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------
+HasIPAddressTest: test_module
+-----------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:03:55', '2015-03-23 19:03:55')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+----------------------------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_components_without_prefix
+----------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:03:55', '2015-03-23 19:03:55')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 6, '2015-03-23 19:03:55', '2015-03-23 19:03:55')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-------------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_components
+-------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:03:55', '2015-03-23 19:03:55')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'ac100a01', 24, 4, '2015-03-23 19:03:55', '2015-03-23 19:03:55')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+---------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_object
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:03:55', '2015-03-23 19:03:55')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'912d2d36', 24, 4, '2015-03-23 19:03:55', '2015-03-23 19:03:55')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+---------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_string
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:03:55', '2015-03-23 19:03:55')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80800200c0000000000000000', 64, 6, '2015-03-23 19:03:55', '2015-03-23 19:03:55')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+---------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_object
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:03:55', '2015-03-23 19:03:55')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80800200c0000000000000000', 64, 6, '2015-03-23 19:03:55', '2015-03-23 19:03:55')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-------------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_components
+-------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:03:55', '2015-03-23 19:03:55')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 19:03:55', '2015-03-23 19:03:55')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-------------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_components
+-------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:05:21', '2015-03-23 19:05:21')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'ac100a01', 24, 4, '2015-03-23 19:05:21', '2015-03-23 19:05:21')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (1.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_components
+-------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:05:21', '2015-03-23 19:05:21')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 19:05:21', '2015-03-23 19:05:21')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_components_without_prefix
+----------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:05:21', '2015-03-23 19:05:21')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 6, '2015-03-23 19:05:21', '2015-03-23 19:05:21')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+-----------------------------
+HasIPAddressTest: test_module
+-----------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:05:21', '2015-03-23 19:05:21')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_object
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:05:21', '2015-03-23 19:05:21')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'912d2d36', 24, 4, '2015-03-23 19:05:21', '2015-03-23 19:05:21')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+----------------------------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_components_without_prefix
+----------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:05:21', '2015-03-23 19:05:21')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'ac100a01', 4, '2015-03-23 19:05:21', '2015-03-23 19:05:21')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+---------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_object
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:05:21', '2015-03-23 19:05:21')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80800200c0000000000000000', 64, 6, '2015-03-23 19:05:21', '2015-03-23 19:05:21')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+---------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_string
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:05:21', '2015-03-23 19:05:21')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'912d2d36', 24, 4, '2015-03-23 19:05:21', '2015-03-23 19:05:21')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `created_at`, `updated_at`) VALUES ('Testing', '2015-03-23 19:05:21', '2015-03-23 19:05:21')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_string
+---------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:05:21', '2015-03-23 19:05:21')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80800200c0000000000000000', 64, 6, '2015-03-23 19:05:21', '2015-03-23 19:05:21')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `created_at`, `updated_at`) VALUES ('Testing', '2015-03-23 19:05:21', '2015-03-23 19:05:21')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-----------------------------
+HasIPAddressTest: test_module
+-----------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:08:03', '2015-03-23 19:08:03')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.9ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_string
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:08:03', '2015-03-23 19:08:03')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'912d2d36', 24, 4, '2015-03-23 19:08:03', '2015-03-23 19:08:03')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `created_at`, `updated_at`) VALUES ('Testing', '2015-03-23 19:08:03', '2015-03-23 19:08:03')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_string
+---------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:08:03', '2015-03-23 19:08:03')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80800200c0000000000000000', 64, 6, '2015-03-23 19:08:03', '2015-03-23 19:08:03')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `created_at`, `updated_at`) VALUES ('Testing', '2015-03-23 19:08:03', '2015-03-23 19:08:03')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+---------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_object
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:08:03', '2015-03-23 19:08:03')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'912d2d36', 24, 4, '2015-03-23 19:08:03', '2015-03-23 19:08:03')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_object
+---------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:08:03', '2015-03-23 19:08:03')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80800200c0000000000000000', 64, 6, '2015-03-23 19:08:03', '2015-03-23 19:08:03')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+------------------------------------------------
+HasIPAddressTest: test_set_version_4_from_string
+------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:08:03', '2015-03-23 19:08:03')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_components
+-------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:08:03', '2015-03-23 19:08:03')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 19:08:03', '2015-03-23 19:08:03')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+------------------------------------------------
+HasIPAddressTest: test_set_version_4_from_object
+------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:08:03', '2015-03-23 19:08:03')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+----------------------------------------------------------------------
+HasIPAddressTest: test_create_version_6_from_components_without_prefix
+----------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:08:03', '2015-03-23 19:08:03')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 6, '2015-03-23 19:08:03', '2015-03-23 19:08:03')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_components_without_prefix
+----------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:08:03', '2015-03-23 19:08:03')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'ac100a01', 4, '2015-03-23 19:08:03', '2015-03-23 19:08:03')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-------------------------------------------------------
+HasIPAddressTest: test_create_version_4_from_components
+-------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'acc02d00', 24, 4, '2015-03-23 19:08:03', '2015-03-23 19:08:03')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'ac100a01', 24, 4, '2015-03-23 19:08:03', '2015-03-23 19:08:03')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
