@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class HasIpAddressTest < ActiveSupport::TestCase
+class HasIPAddressTest < ActiveSupport::TestCase
   test "truth" do
-    assert_kind_of Module, HasIpAddress
+    assert_kind_of Module, HasIPAddress
   end
 end

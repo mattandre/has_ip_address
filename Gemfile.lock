@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/mattandre/networking.git
+  revision: b37275e0fe39d4099f1446530cfe1cc82aecaf19
+  specs:
+    networking (0.0.1)
+
 PATH
   remote: .
   specs:
@@ -109,4 +115,5 @@ PLATFORMS
 
 DEPENDENCIES
   has_ip_address!
+  networking!
   sqlite3
