@@ -1,0 +1,450 @@
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "description" varchar, "ip_address" integer(8), "ip_prefix" integer(2), "ip_version" integer(1), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (2.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (2.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150323150130')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.3ms)[0m  [1mDROP DATABASE IF EXISTS `has_ip_address_test`[0m
+  [1m[35m (0.2ms)[0m  CREATE DATABASE `has_ip_address_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (2.0ms)[0m  [1mCREATE TABLE `events` (`id` int(11) auto_increment PRIMARY KEY, `description` varchar(255), `ip_address` varbinary(16), `ip_prefix` tinyint, `ip_version` tinyint, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1.9ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36m (6.2ms)[0m  [1mCREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) [0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150323150130')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `events` (`ip_address`, `description`, `ip_prefix`, `ip_version`, `created_at`, `updated_at`) VALUES (x'333338373730303030383435373334323932353334333235303235303737333631363532323430', 'Testing', 32, 6, '2015-03-23 15:45:56', '2015-03-23 15:45:56')
+Mysql2::Error: Data too long for column 'ip_address' at row 1: INSERT INTO `events` (`ip_address`, `description`, `ip_prefix`, `ip_version`, `created_at`, `updated_at`) VALUES (x'333338373730303030383435373334323932353334333235303235303737333631363532323430', 'Testing', 32, 6, '2015-03-23 15:45:56', '2015-03-23 15:45:56')
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `events` (`ip_address`, `description`, `ip_prefix`, `ip_version`, `created_at`, `updated_at`) VALUES (x'333338393538333331323232303132303832343138303939333330383637383137303837303433', 'Testing', 32, 6, '2015-03-23 15:46:45', '2015-03-23 15:46:45')
+Mysql2::Error: Data too long for column 'ip_address' at row 1: INSERT INTO `events` (`ip_address`, `description`, `ip_prefix`, `ip_version`, `created_at`, `updated_at`) VALUES (x'333338393538333331323232303132303832343138303939333330383637383137303837303433', 'Testing', 32, 6, '2015-03-23 15:46:45', '2015-03-23 15:46:45')
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36m (1.9ms)[0m  [1mDROP DATABASE IF EXISTS `has_ip_address_test`[0m
+  [1m[35m (0.2ms)[0m  CREATE DATABASE `has_ip_address_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (2.1ms)[0m  [1mCREATE TABLE `events` (`id` int(11) auto_increment PRIMARY KEY, `description` varchar(255), `ip_address` varbinary(16), `ip_prefix` smallint, `ip_version` tinyint, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36m (5.9ms)[0m  [1mCREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) [0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM `schema_migrations`
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150323150131')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `events` (`ip_address`, `description`, `ip_prefix`, `ip_version`, `created_at`, `updated_at`) VALUES (x'333338393538333331323232303132303832343138303939333330383637383137303837303433', 'Testing', 32, 6, '2015-03-23 15:48:57', '2015-03-23 15:48:57')[0m
+Mysql2::Error: Data too long for column 'ip_address' at row 1: INSERT INTO `events` (`ip_address`, `description`, `ip_prefix`, `ip_version`, `created_at`, `updated_at`) VALUES (x'333338393538333331323232303132303832343138303939333330383637383137303837303433', 'Testing', 32, 6, '2015-03-23 15:48:57', '2015-03-23 15:48:57')
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `events` (`description`, `ip_address`, `ip_prefix`, `ip_version`, `created_at`, `updated_at`) VALUES ('Testing', x'3230303130646238303030303030303030303038303830303230306334313761', 32, 6, '2015-03-23 15:58:55', '2015-03-23 15:58:55')
+Mysql2::Error: Data too long for column 'ip_address' at row 1: INSERT INTO `events` (`description`, `ip_address`, `ip_prefix`, `ip_version`, `created_at`, `updated_at`) VALUES ('Testing', x'3230303130646238303030303030303030303038303830303230306334313761', 32, 6, '2015-03-23 15:58:55', '2015-03-23 15:58:55')
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address`, `ip_prefix`, `ip_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 32, 6, '2015-03-23 16:02:23', '2015-03-23 16:02:23')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.8ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address`, `ip_prefix`, `ip_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 32, 6, '2015-03-23 16:03:15', '2015-03-23 16:03:15')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT  `events`.* FROM `events`  ORDER BY `events`.`id` ASC LIMIT 1
+  [1m[36m (1.8ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address`, `ip_prefix`, `ip_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db800be0f0d0000000000000000', 64, 6, '2015-03-23 16:05:06', '2015-03-23 16:05:06')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT  `events`.* FROM `events`  ORDER BY `events`.`id` ASC LIMIT 1
+  [1m[36m (0.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address`, `ip_prefix`, `ip_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db800be0f0d0000000000000000', 64, 6, '2015-03-23 16:33:04', '2015-03-23 16:33:04')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT  `events`.* FROM `events`  ORDER BY `events`.`id` ASC LIMIT 1
+  [1m[36m (1.8ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36m (2.7ms)[0m  [1mDROP DATABASE IF EXISTS `has_ip_address_test`[0m
+  [1m[35m (0.2ms)[0m  CREATE DATABASE `has_ip_address_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (7.4ms)[0m  [1mCREATE TABLE `events` (`id` int(11) auto_increment PRIMARY KEY, `description` varchar(255), `ip_address_data` varbinary(16), `ip_address_prefix` smallint, `ip_address_version` tinyint, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36m (6.0ms)[0m  [1mCREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) [0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150323150132')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 17:05:21', '2015-03-23 17:05:21')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT  `events`.* FROM `events`  ORDER BY `events`.`id` ASC LIMIT 1
+  [1m[36m (1.8ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 17:05:36', '2015-03-23 17:05:36')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT  `events`.* FROM `events`  ORDER BY `events`.`id` ASC LIMIT 1
+  [1m[36m (1.9ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 17:05:59', '2015-03-23 17:05:59')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT  `events`.* FROM `events`  ORDER BY `events`.`id` ASC LIMIT 1
+  [1m[36m (1.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 17:06:12', '2015-03-23 17:06:12')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT  `events`.* FROM `events`  ORDER BY `events`.`id` ASC LIMIT 1
+  [1m[36m (1.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 17:06:55', '2015-03-23 17:06:55')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT  `events`.* FROM `events`  ORDER BY `events`.`id` ASC LIMIT 1
+  [1m[36m (1.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 17:07:19', '2015-03-23 17:07:19')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT  `events`.* FROM `events`  ORDER BY `events`.`id` ASC LIMIT 1
+  [1m[36m (1.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 17:07:46', '2015-03-23 17:07:46')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT  `events`.* FROM `events`  ORDER BY `events`.`id` ASC LIMIT 1
+  [1m[36m (1.8ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 17:08:15', '2015-03-23 17:08:15')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT  `events`.* FROM `events`  ORDER BY `events`.`id` ASC LIMIT 1
+  [1m[36m (7.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 17:09:32', '2015-03-23 17:09:32')
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT  `events`.* FROM `events`  ORDER BY `events`.`id` ASC LIMIT 1
+  [1m[36m (1.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 17:10:04', '2015-03-23 17:10:04')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT  `events`.* FROM `events`  ORDER BY `events`.`id` ASC LIMIT 1
+  [1m[36m (1.7ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 17:24:07', '2015-03-23 17:24:07')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT  `events`.* FROM `events`  ORDER BY `events`.`id` ASC LIMIT 1
+  [1m[36m (1.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 17:25:00', '2015-03-23 17:25:00')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT  `events`.* FROM `events`  ORDER BY `events`.`id` ASC LIMIT 1
+  [1m[36m (1.8ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 17:25:10', '2015-03-23 17:25:10')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT  `events`.* FROM `events`  ORDER BY `events`.`id` ASC LIMIT 1
+  [1m[36m (1.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 17:26:08', '2015-03-23 17:26:08')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT  `events`.* FROM `events`  ORDER BY `events`.`id` ASC LIMIT 1
+  [1m[36m (1.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------------
+HasIPAddressTest: test_event_model
+----------------------------------
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `events` (`description`, `ip_address_data`, `ip_address_prefix`, `ip_address_version`, `created_at`, `updated_at`) VALUES ('Testing', x'20010db80000000000080800200c417a', 64, 6, '2015-03-23 17:26:21', '2015-03-23 17:26:21')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT  `events`.* FROM `events`  ORDER BY `events`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `events` SET `ip_address_data` = x'7f000000', `ip_address_prefix` = 8, `ip_address_version` = 4, `updated_at` = '2015-03-23 17:26:21' WHERE `events`.`id` = 15
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------
+HasIPAddressTest: test_truth
+----------------------------
+  [1m[35m (0.1ms)[0m  ROLLBACK
