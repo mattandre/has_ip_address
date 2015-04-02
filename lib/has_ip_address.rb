@@ -30,8 +30,7 @@ module HasIPAddress
     def has_ip_address(options = {})
       name = options.fetch(:name, :ip_address)
 
-      data_column = "#{name}_data".to_sym
-      prefix_column = "#{name}_prefix".to_sym
+      address_column = "#{name}".to_sym
       version_column = "#{name}_version".to_sym
 
       define_method "#{name}=" do |ip_address|
@@ -40,14 +39,12 @@ module HasIPAddress
         end
 
         if ip_address.nil?
-          self[data_column] = nil
-          self[prefix_column] = nil
+          self[address_column] = nil
           self[version_column] = nil
 
           @ip_addresses_cache[name] = nil
         else
-          self[data_column] = ip_address.data
-          self[prefix_column] = ip_address.prefix.to_i
+          self[address_column] = ip_address.data
           self[version_column] = ip_address.version
 
           @ip_addresses_cache[name] = ip_address.freeze
@@ -56,20 +53,15 @@ module HasIPAddress
 
       define_method name do
         if @ip_addresses_cache[name].nil?
-          data = self[data_column]
-          prefix = self[prefix_column]
+          data = self[address_column]
           version = self[version_column]
 
           unless data.nil? || version.nil?
-            @ip_addresses_cache[name] = Networking::IPAddress.parse_data(data, prefix, version)
+            @ip_addresses_cache[name] = Networking::IPAddress.parse_data(data, version)
           end
         end
 
         @ip_addresses_cache[name]
-      end
-
-      define_singleton_method "by_#{name}_prefix" do |prefix|
-        where(prefix_column => prefix)
       end
 
       define_singleton_method "by_#{name}_version" do |version|
@@ -83,12 +75,10 @@ module HasIPAddress
 
         if ip_address.present?
           data = ip_address.data
-          prefix = ip_address.prefix.to_i
           version = ip_address.version
         end
 
-        where(data_column => data)
-          .send("by_#{name}_prefix", prefix)
+        where(address_column => data)
           .send("by_#{name}_version", version)
       end
 
@@ -97,7 +87,7 @@ module HasIPAddress
           ip_address = Networking::IPAddress.parse!(ip_address)
         end
 
-        where("#{data_column} <= ?", ip_address.data)
+        where("#{address_column} <= ?", ip_address.data)
           .send("by_#{name}_version", ip_address.version)
       end
 
@@ -106,7 +96,7 @@ module HasIPAddress
           ip_address = Networking::IPAddress.parse!(ip_address)
         end
 
-        where("#{data_column} >= ?", ip_address.data)
+        where("#{address_column} >= ?", ip_address.data)
           .send("by_#{name}_version", ip_address.version)
       end
     end
